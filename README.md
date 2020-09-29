@@ -1,4 +1,4 @@
-# terrafomr vault
+# terraform vault
 
 just run ./run_tests.sh
 
