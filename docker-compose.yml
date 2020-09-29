@@ -1,0 +1,22 @@
+version: '3.6'
+services:
+  vault:
+   # image: vault:latest
+    build: .
+    container_name: vault
+    restart: on-failure
+    ports:
+      - "9200:8200"
+    environment:
+      - VAULT_ADDR=http://192.168.0.13:9200
+      - VAULT_API_ADDR=http://192.168.0.13:9200
+      - VAULT_ADDRESS=http://192.168.0.13:9200
+      - VAULT_DEV_ROOT_TOKEN_ID=myroot
+    volumes:
+     # - ./vault/file:/vault/file:rw
+      - ./config:/vault/config
+     # - ./vault/policies:/vault/policies
+      - ./vault/:/vault/:rw
+    cap_add:
+      - IPC_LOCK
+    entrypoint: vault server -config=/vault/config/vault.json
