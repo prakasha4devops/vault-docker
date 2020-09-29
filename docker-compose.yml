@@ -11,7 +11,7 @@ services:
       - VAULT_ADDR=http://192.168.0.13:9200
       - VAULT_API_ADDR=http://192.168.0.13:9200
       - VAULT_ADDRESS=http://192.168.0.13:9200
-      - VAULT_DEV_ROOT_TOKEN_ID=myroot
+      #- VAULT_DEV_ROOT_TOKEN_ID=myroot
     volumes:
      # - ./vault/file:/vault/file:rw
       - ./config:/vault/config
